@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alice parrucchiere · Mortara — Aperti anche il lunedì, orario continuato</title>
+  <meta name="description" content="Alice parrucchiere a Mortara (PV): aperti anche il lunedì con orario continuato e senza appuntamento. Corso Giuseppe Garibaldi 30. Lun–Sab 8:30–20. Chiama 388 757 7737.">
+  <meta name="theme-color" content="#0f9d8f">
+
+  <!-- Google Fonts via CDN con fallback di sistema -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --mint-50:#effbf7;
+      --mint-100:#d6f4ec;
+      --mint-200:#a9e8da;
+      --teal-400:#2bbfa9;
+      --teal-500:#0f9d8f;
+      --teal-600:#0c7d73;
+      --teal-700:#0a5f59;
+      --ink:#0c2b29;
+      --ink-soft:#3a5754;
+      --line:#cdeee6;
+      --white:#ffffff;
+      --shadow:0 10px 30px rgba(12,125,115,.12);
+      --shadow-sm:0 4px 14px rgba(12,125,115,.10);
+      --radius:18px;
+      --radius-sm:12px;
+      --maxw:1080px;
+      --font:"Manrope", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{
+      margin:0;
+      font-family:var(--font);
+      color:var(--ink);
+      background:var(--white);
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+    img{max-width:100%;display:block;}
+    a{color:var(--teal-600);}
+
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px;}
+
+    /* Accessibilità: focus visibile */
+    a:focus-visible,
+    button:focus-visible,
+    .btn:focus-visible{
+      outline:3px solid var(--teal-600);
+      outline-offset:3px;
+      border-radius:8px;
+    }
+
+    .skip-link{
+      position:absolute;left:-9999px;top:0;
+      background:var(--ink);color:#fff;padding:10px 16px;border-radius:0 0 10px 0;z-index:1000;
+    }
+    .skip-link:focus{left:0;}
+
+    /* ---------- HEADER ---------- */
+    header.site{
+      position:sticky;top:0;z-index:50;
+      background:rgba(255,255,255,.92);
+      backdrop-filter:saturate(140%) blur(8px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      display:flex;align-items:center;justify-content:space-between;gap:16px;
+      padding:12px 20px;max-width:var(--maxw);margin:0 auto;
+    }
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);}
+    .brand-mark{
+      width:42px;height:42px;border-radius:12px;flex:none;
+      background:linear-gradient(135deg,var(--teal-400),var(--teal-600));
+      display:grid;place-items:center;color:#fff;font-weight:800;font-size:1.1rem;
+      box-shadow:var(--shadow-sm);
+    }
+    .brand-name{font-weight:800;font-size:1.05rem;line-height:1.1;}
+    .brand-sub{font-size:.78rem;color:var(--ink-soft);font-weight:600;letter-spacing:.02em;}
+    .nav-cta{display:flex;gap:10px;align-items:center;}
+    .nav-links{display:none;gap:22px;}
+    .nav-links a{text-decoration:none;color:var(--ink-soft);font-weight:600;font-size:.95rem;}
+    .nav-links a:hover{color:var(--teal-600);}
+
+    /* ---------- BOTTONI ---------- */
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:9px;
+      padding:13px 20px;border-radius:999px;font-weight:700;font-size:1rem;
+      text-decoration:none;border:2px solid transparent;cursor:pointer;
+      transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+      line-height:1;
+    }
+    .btn svg{width:19px;height:19px;flex:none;}
+    .btn-primary{background:var(--teal-500);color:#fff;box-shadow:var(--shadow-sm);}
+    .btn-primary:hover{background:var(--teal-600);transform:translateY(-2px);}
+    .btn-wa{background:#1faf5b;color:#fff;box-shadow:var(--shadow-sm);}
+    .btn-wa:hover{background:#1a974f;transform:translateY(-2px);}
+    .btn-ghost{background:var(--white);color:var(--teal-700);border-color:var(--mint-200);}
+    .btn-ghost:hover{background:var(--mint-50);transform:translateY(-2px);}
+    .btn-sm{padding:10px 16px;font-size:.92rem;}
+
+    /* ---------- HERO ---------- */
+    .hero{
+      position:relative;overflow:hidden;
+      background:
+        radial-gradient(900px 420px at 85% -10%, var(--mint-100), transparent 60%),
+        radial-gradient(700px 380px at -10% 110%, var(--mint-50), transparent 55%),
+        var(--white);
+      padding:56px 0 40px;
+    }
+    .hero-grid{display:grid;gap:34px;align-items:center;grid-template-columns:1fr;}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:8px;
+      background:var(--mint-100);color:var(--teal-700);
+      padding:7px 14px;border-radius:999px;font-weight:700;font-size:.82rem;
+      letter-spacing:.03em;text-transform:uppercase;
+    }
+    /* Motivo grafico ricorrente: la "fogliolina" menta, firma discreta di Alice */
+    .eyebrow::before{
+      content:"";width:11px;height:11px;flex:none;
+      background:var(--teal-500);border-radius:62% 0 62% 0;transform:rotate(-8deg);
+    }
+    .hero h1{
+      font-size:clamp(2.1rem,6vw,3.4rem);line-height:1.06;margin:18px 0 14px;
+      font-weight:800;letter-spacing:-.02em;
+    }
+    .hero h1 .accent{color:var(--teal-600);}
+    .hero .lead{font-size:1.12rem;color:var(--ink-soft);max-width:42ch;margin:0 0 22px;}
+
+    /* Banner messaggio chiave */
+    .keymsg{
+      display:flex;flex-wrap:wrap;gap:10px;margin:0 0 26px;
+    }
+    .keymsg .chip{
+      display:inline-flex;align-items:center;gap:9px;
+      background:var(--white);border:2px solid var(--mint-200);
+      color:var(--teal-700);font-weight:700;font-size:.95rem;
+      padding:11px 15px;border-radius:14px;box-shadow:var(--shadow-sm);
+    }
+    .keymsg .chip svg{width:18px;height:18px;color:var(--teal-500);flex:none;}
+
+    .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:18px;}
+
+    .rating{
+      display:inline-flex;align-items:center;gap:10px;
+      font-weight:600;color:var(--ink-soft);font-size:.95rem;
+    }
+    .stars{color:#f5a623;letter-spacing:2px;font-size:1.05rem;}
+    .rating strong{color:var(--ink);}
+
+    /* Placeholder foto (CSS, no immagini esterne) */
+    .photo-ph{
+      position:relative;border-radius:var(--radius);overflow:hidden;
+      min-height:300px;border:1px solid var(--line);box-shadow:var(--shadow);
+      background:
+        linear-gradient(135deg, var(--teal-500), var(--teal-700));
+      display:grid;place-items:center;text-align:center;padding:24px;
+    }
+    .photo-ph::before{
+      content:"";position:absolute;inset:0;
+      background:
+        radial-gradient(280px 200px at 78% 22%, rgba(255,255,255,.28), transparent 60%),
+        radial-gradient(220px 220px at 18% 88%, rgba(255,255,255,.14), transparent 60%);
+    }
+    .photo-ph .ph-inner{position:relative;color:#eafaf6;}
+    .photo-ph .ph-icon{
+      width:64px;height:64px;margin:0 auto 14px;border-radius:18px;
+      background:rgba(255,255,255,.16);display:grid;place-items:center;
+      border:1px solid rgba(255,255,255,.35);
+    }
+    .photo-ph .ph-icon svg{width:32px;height:32px;color:#fff;}
+    .photo-ph .ph-label{font-weight:700;font-size:1rem;}
+    .photo-ph .ph-note{font-size:.85rem;opacity:.85;margin-top:4px;}
+
+    /* ---------- SEZIONI ---------- */
+    section{padding:62px 0;}
+    .section-head{max-width:60ch;margin:0 0 34px;}
+    .section-head .eyebrow{margin-bottom:14px;}
+    h2{font-size:clamp(1.6rem,4vw,2.2rem);line-height:1.15;margin:0 0 12px;font-weight:800;letter-spacing:-.015em;}
+    h2 + p{color:var(--ink-soft);font-size:1.05rem;margin:0;}
+    .alt{background:var(--mint-50);}
+
+    /* Servizi */
+    .cards{display:grid;gap:18px;grid-template-columns:1fr;}
+    .card{
+      background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+      padding:24px;box-shadow:var(--shadow-sm);transition:transform .15s ease, box-shadow .15s ease;
+    }
+    .card:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+    .card .ic{
+      width:50px;height:50px;border-radius:14px;margin-bottom:14px;
+      background:var(--mint-100);display:grid;place-items:center;color:var(--teal-600);
+    }
+    .card .ic svg{width:26px;height:26px;}
+    .card h3{margin:0 0 6px;font-size:1.15rem;font-weight:700;}
+    .card p{margin:0;color:var(--ink-soft);font-size:.97rem;}
+
+    /* Punti di forza */
+    .features{display:grid;gap:18px;grid-template-columns:1fr;}
+    .feature{
+      display:flex;gap:16px;align-items:flex-start;
+      background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:22px;
+    }
+    .feature .ic{
+      width:48px;height:48px;border-radius:14px;flex:none;
+      background:linear-gradient(135deg,var(--teal-400),var(--teal-600));
+      display:grid;place-items:center;color:#fff;
+    }
+    .feature .ic svg{width:24px;height:24px;}
+    .feature h3{margin:0 0 5px;font-size:1.1rem;font-weight:700;}
+    .feature p{margin:0;color:var(--ink-soft);font-size:.96rem;}
+
+    /* Orari */
+    .hours-wrap{display:grid;gap:26px;grid-template-columns:1fr;align-items:start;}
+    .hours-card{
+      background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+      padding:8px 6px;box-shadow:var(--shadow-sm);overflow:hidden;
+    }
+    .hours-row{
+      display:flex;justify-content:space-between;align-items:center;
+      padding:14px 18px;border-bottom:1px solid var(--mint-100);
+    }
+    .hours-row:last-child{border-bottom:none;}
+    .hours-row.open{background:var(--mint-50);}
+    .hours-row .day{font-weight:700;}
+    .hours-row .time{color:var(--ink-soft);font-weight:600;font-variant-numeric:tabular-nums;}
+    .hours-row.closed .time{color:#b14b4b;font-weight:700;}
+    .badge-open{
+      display:inline-flex;align-items:center;gap:6px;
+      background:var(--mint-100);color:var(--teal-700);
+      font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;
+      padding:3px 9px;border-radius:999px;margin-left:10px;
+    }
+    .hours-aside{
+      background:linear-gradient(135deg,var(--teal-500),var(--teal-700));
+      color:#eafaf6;border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);
+    }
+    .hours-aside h3{margin:0 0 10px;color:#fff;font-size:1.3rem;}
+    .hours-aside p{margin:0 0 8px;opacity:.95;}
+    .hours-aside .big{font-size:1.05rem;font-weight:700;color:#fff;}
+
+    /* Dove siamo */
+    .place{display:grid;gap:26px;grid-template-columns:1fr;align-items:stretch;}
+    .place-info{
+      background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+      padding:26px;box-shadow:var(--shadow-sm);
+    }
+    .place-info dl{margin:0;display:grid;gap:16px;}
+    .place-info dt{font-weight:800;color:var(--teal-700);font-size:.82rem;text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px;}
+    .place-info dd{margin:0;color:var(--ink);font-size:1.05rem;}
+    .place-info dd a{color:var(--ink);text-decoration:none;font-weight:600;}
+    .place-info dd a:hover{color:var(--teal-600);text-decoration:underline;}
+    .place-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px;}
+    .map-ph{
+      position:relative;border-radius:var(--radius);overflow:hidden;min-height:280px;
+      border:1px solid var(--line);box-shadow:var(--shadow-sm);
+      background:
+        linear-gradient(120deg,var(--mint-100),var(--mint-50));
+    }
+    .map-ph::before{
+      content:"";position:absolute;inset:0;opacity:.5;
+      background-image:
+        linear-gradient(var(--mint-200) 1px, transparent 1px),
+        linear-gradient(90deg, var(--mint-200) 1px, transparent 1px);
+      background-size:34px 34px;
+    }
+    .map-pin{
+      position:absolute;top:46%;left:50%;transform:translate(-50%,-50%);
+      display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--teal-700);
+    }
+    .map-pin .dot{
+      width:46px;height:46px;border-radius:50% 50% 50% 4px;transform:rotate(45deg);
+      background:var(--teal-500);box-shadow:var(--shadow);border:3px solid #fff;
+    }
+    .map-pin .lbl{
+      background:#fff;padding:6px 12px;border-radius:999px;font-weight:700;font-size:.85rem;
+      box-shadow:var(--shadow-sm);
+    }
+
+    /* Contatti CTA finale */
+    .contact-cta{
+      background:linear-gradient(135deg,var(--teal-500),var(--teal-700));
+      color:#fff;border-radius:24px;padding:40px 28px;text-align:center;
+      box-shadow:var(--shadow);
+    }
+    .contact-cta h2{color:#fff;}
+    .contact-cta p{color:#eafaf6;max-width:48ch;margin:0 auto 24px;font-size:1.05rem;}
+    .contact-cta .hero-cta{justify-content:center;}
+    .contact-cta .btn-ghost{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.5);}
+    .contact-cta .btn-ghost:hover{background:rgba(255,255,255,.22);}
+
+    /* ---------- FOOTER ---------- */
+    footer.site{background:var(--ink);color:#cfe6e2;padding:34px 0 24px;}
+    .foot-grid{display:grid;gap:18px;grid-template-columns:1fr;}
+    footer.site h4{color:#fff;margin:0 0 8px;font-size:1.05rem;}
+    footer.site p,footer.site a{color:#a9cfc9;font-size:.95rem;text-decoration:none;}
+    footer.site a:hover{color:#fff;}
+    .foot-bottom{
+      border-top:1px solid rgba(255,255,255,.12);margin-top:24px;padding-top:16px;
+      display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font-size:.85rem;color:#7fb0aa;
+    }
+    /* Nota anteprima SC Web (discreta) */
+    .sc-note{font-size:.8rem;color:#6fa49e;}
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (min-width:680px){
+      .cards{grid-template-columns:repeat(2,1fr);}
+      .features{grid-template-columns:repeat(2,1fr);}
+      .foot-grid{grid-template-columns:repeat(3,1fr);}
+    }
+    @media (min-width:900px){
+      .nav-links{display:flex;}
+      .hero{padding:72px 0 56px;}
+      .hero-grid{grid-template-columns:1.05fr .95fr;gap:48px;}
+      .photo-ph{min-height:380px;}
+      .cards{grid-template-columns:repeat(3,1fr);}
+      .hours-wrap{grid-template-columns:1.3fr 1fr;}
+      .place{grid-template-columns:1fr 1fr;}
+    }
+
+    /* Movimento ridotto */
+    @media (prefers-reduced-motion:reduce){
+      *{animation:none !important;transition:none !important;scroll-behavior:auto !important;}
+      .btn:hover,.card:hover,.feature:hover{transform:none;}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Salta al contenuto</a>
+
+  <!-- HEADER -->
+  <header class="site">
+    <nav class="nav" aria-label="Navigazione principale">
+      <a class="brand" href="#main" aria-label="Alice parrucchiere, torna su">
+        <span class="brand-mark" aria-hidden="true">A</span>
+        <span>
+          <span class="brand-name">Alice parrucchiere</span><br>
+          <span class="brand-sub">Mortara (PV)</span>
+        </span>
+      </a>
+      <div class="nav-links">
+        <a href="#servizi">Servizi</a>
+        <a href="#perche">Perché noi</a>
+        <a href="#orari">Orari</a>
+        <a href="#dove">Dove siamo</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-primary btn-sm" href="tel:+393887577737">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Chiama
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow">Parrucchiere a Mortara</span>
+          <h1 id="hero-title">Capelli curati, <span class="accent">quando ti serve davvero</span></h1>
+          <p class="lead">Alice parrucchiere è il salone di Mortara pensato per chi ha poco tempo: passa quando vuoi, ti accogliamo con cura.</p>
+
+          <!-- Messaggio chiave in primo piano -->
+          <div class="keymsg" role="list" aria-label="I nostri vantaggi">
+            <span class="chip" role="listitem">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              Aperti anche il lunedì
+            </span>
+            <span class="chip" role="listitem">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+              Orario continuato
+            </span>
+            <span class="chip" role="listitem">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              Senza appuntamento
+            </span>
+          </div>
+
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="tel:+393887577737">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              388 757 7737
+            </a>
+            <a class="btn btn-wa" href="https://wa.me/393887577737" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 1.8a8.1 8.1 0 0 1 8.1 8.11c0 4.47-3.64 8.11-8.11 8.11a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3.12.82.83-3.04-.19-.31a8.07 8.07 0 0 1-1.24-4.27c0-4.48 3.64-8.11 8.16-8.11zm-2.6 4.36c-.18 0-.46.07-.7.33-.24.27-.92.9-.92 2.2s.94 2.55 1.07 2.73c.13.18 1.85 2.83 4.49 3.96.63.27 1.12.43 1.5.55.63.2 1.2.17 1.66.1.51-.07 1.56-.64 1.78-1.25.22-.62.22-1.14.16-1.25-.07-.11-.24-.18-.51-.31-.27-.13-1.56-.77-1.8-.86-.24-.09-.42-.13-.6.14-.18.27-.69.86-.84 1.04-.16.18-.31.2-.58.07-.27-.14-1.13-.42-2.16-1.33-.8-.71-1.34-1.59-1.5-1.86-.16-.27-.02-.42.12-.55.12-.12.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.34-.02-.47-.07-.13-.6-1.45-.83-1.98-.22-.53-.44-.45-.6-.46l-.51-.01z"/></svg>
+              WhatsApp
+            </a>
+          </div>
+
+          <p class="rating" aria-label="Valutazione Google: 4 stelle su 5, 22 recensioni">
+            <span class="stars" aria-hidden="true">★★★★☆</span>
+            <span><strong>4,0</strong> su Google · 22 recensioni</span>
+          </p>
+        </div>
+
+        <!-- Placeholder foto salone -->
+        <div class="photo-ph" role="img" aria-label="Foto del salone Alice parrucchiere — da inserire">
+          <div class="ph-inner">
+            <div class="ph-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2.5"/><path d="m3 17 4-3 3 2 4-4 7 6"/></svg>
+            </div>
+            <div class="ph-label">La tua foto qui</div>
+            <div class="ph-note">Foto del salone</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVIZI -->
+    <section id="servizi" aria-labelledby="servizi-title">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Servizi</span>
+          <h2 id="servizi-title">Tutto quello che serve ai tuoi capelli</h2>
+          <p>Taglio, piega e colore per donna, uomo e bambino. Un servizio pratico e curato, senza attese inutili.</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.12 15.88M14.47 14.48 20 20M8.12 8.12 12 12"/></svg></div>
+            <h3>Taglio</h3>
+            <p>Tagli donna, uomo e bambino, adatti alla forma del viso e alla routine di tutti i giorni.</p>
+          </article>
+          <article class="card">
+            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h7a4 4 0 0 1 4 4v0a4 4 0 0 1-4 4H4zM4 12h9a4 4 0 0 1 4 4v0a4 4 0 0 1-4 4H4z"/><path d="M19 7h2M19 17h2"/></svg></div>
+            <h3>Piega &amp; styling</h3>
+            <p>Messa in piega e styling per ogni occasione, dal look di tutti i giorni a quello delle serate speciali.</p>
+          </article>
+          <article class="card">
+            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-3.5 4-6 6.5-6 9.5A6 6 0 0 0 18 12.5C18 9.5 15.5 7 12 3z"/></svg></div>
+            <h3>Colore</h3>
+            <p>Colore, riflessi e schiariture per ravvivare la chioma con un risultato naturale e luminoso.</p>
+          </article>
+          <article class="card">
+            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M9 5h6"/><path d="M5 9h14l-1.2 11.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8z"/></svg></div>
+            <h3>Trattamenti</h3>
+            <p>Lavaggio e trattamenti per capelli sani, morbidi e pieni di vita ad ogni passaggio.</p>
+          </article>
+          <article class="card">
+            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></div>
+            <h3>Uomo</h3>
+            <p>Taglio e rifinitura uomo veloci e precisi, perfetti da fare anche in pausa pranzo.</p>
+          </article>
+          <article class="card">
+            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11a3 3 0 1 0 6 0 3 3 0 0 0-6 0z"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></div>
+            <h3>Bambini</h3>
+            <p>Tagli per i più piccoli in un ambiente tranquillo, sereno e accogliente.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PUNTI DI FORZA / CHI SIAMO -->
+    <section id="perche" class="alt" aria-labelledby="perche-title">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Perché Alice</span>
+          <h2 id="perche-title">Aperti quando gli altri chiudono</h2>
+          <p>Un salone pratico, pulito e accessibile, pensato per incastrarsi nei tuoi orari e non il contrario.</p>
+        </div>
+        <div class="features">
+          <article class="feature">
+            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+            <div>
+              <h3>Sempre disponibili</h3>
+              <p>Aperti dal lunedì al sabato con orario continuato, anche il lunedì: passi quando ti è comodo, senza appuntamento.</p>
+            </div>
+          </article>
+          <article class="feature">
+            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
+            <div>
+              <h3>Pulizia e igiene curata</h3>
+              <p>Ambiente sempre pulito e attenzione costante all'igiene di strumenti e postazioni, per la tua tranquillità.</p>
+            </div>
+          </article>
+          <article class="feature">
+            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4" r="2"/><path d="M19 8h-5l-2 9M5 8h5M9 13l-2 7M15 17l1 3"/></svg></div>
+            <div>
+              <h3>Accessibile a tutti</h3>
+              <p>Salone accessibile e accogliente, pensato per ricevere ogni cliente in modo comodo e sereno.</p>
+            </div>
+          </article>
+          <article class="feature">
+            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.5 8 8 11 4.5-3 8-6 8-11V5z"/></svg></div>
+            <div>
+              <h3>Nel cuore di Mortara</h3>
+              <p>In Corso Giuseppe Garibaldi 30, comodo da raggiungere a piedi o in auto nel centro città.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ORARI -->
+    <section id="orari" aria-labelledby="orari-title">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Orari</span>
+          <h2 id="orari-title">Quando siamo aperti</h2>
+          <p>Dal lunedì al sabato, orario continuato 8:30–20. La domenica siamo chiusi.</p>
+        </div>
+        <div class="hours-wrap">
+          <div class="hours-card">
+            <div class="hours-row open">
+              <span class="day">Lunedì <span class="badge-open">Aperti</span></span>
+              <span class="time">8:30 – 20:00</span>
+            </div>
+            <div class="hours-row open">
+              <span class="day">Martedì</span>
+              <span class="time">8:30 – 20:00</span>
+            </div>
+            <div class="hours-row open">
+              <span class="day">Mercoledì</span>
+              <span class="time">8:30 – 20:00</span>
+            </div>
+            <div class="hours-row open">
+              <span class="day">Giovedì</span>
+              <span class="time">8:30 – 20:00</span>
+            </div>
+            <div class="hours-row open">
+              <span class="day">Venerdì</span>
+              <span class="time">8:30 – 20:00</span>
+            </div>
+            <div class="hours-row open">
+              <span class="day">Sabato</span>
+              <span class="time">8:30 – 20:00</span>
+            </div>
+            <div class="hours-row closed">
+              <span class="day">Domenica</span>
+              <span class="time">Chiuso</span>
+            </div>
+          </div>
+          <aside class="hours-aside">
+            <h3>Orario continuato</h3>
+            <p class="big">Lun – Sab · 8:30 – 20:00</p>
+            <p>Niente pausa pranzo: ci trovi senza interruzioni, anche il lunedì.</p>
+            <p>Vieni quando vuoi, anche senza appuntamento.</p>
+            <div class="hero-cta" style="margin-top:18px;">
+              <a class="btn btn-wa" href="https://wa.me/393887577737" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 1.8a8.1 8.1 0 0 1 8.1 8.11c0 4.47-3.64 8.11-8.11 8.11a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3.12.82.83-3.04-.19-.31a8.07 8.07 0 0 1-1.24-4.27c0-4.48 3.64-8.11 8.16-8.11zm-2.6 4.36c-.18 0-.46.07-.7.33-.24.27-.92.9-.92 2.2s.94 2.55 1.07 2.73c.13.18 1.85 2.83 4.49 3.96.63.27 1.12.43 1.5.55.63.2 1.2.17 1.66.1.51-.07 1.56-.64 1.78-1.25.22-.62.22-1.14.16-1.25-.07-.11-.24-.18-.51-.31-.27-.13-1.56-.77-1.8-.86-.24-.09-.42-.13-.6.14-.18.27-.69.86-.84 1.04-.16.18-.31.2-.58.07-.27-.14-1.13-.42-2.16-1.33-.8-.71-1.34-1.59-1.5-1.86-.16-.27-.02-.42.12-.55.12-.12.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.34-.02-.47-.07-.13-.6-1.45-.83-1.98-.22-.53-.44-.45-.6-.46l-.51-.01z"/></svg>
+                Scrivici su WhatsApp
+              </a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- DOVE SIAMO -->
+    <section id="dove" class="alt" aria-labelledby="dove-title">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Dove siamo</span>
+          <h2 id="dove-title">Ci trovi in centro a Mortara</h2>
+          <p>Corso Giuseppe Garibaldi 30, 27036 Mortara (PV).</p>
+        </div>
+        <div class="place">
+          <div class="place-info">
+            <dl>
+              <div>
+                <dt>Indirizzo</dt>
+                <dd>Corso Giuseppe Garibaldi 30<br>27036 Mortara (PV)</dd>
+              </div>
+              <div>
+                <dt>Telefono</dt>
+                <dd><a href="tel:+393887577737">388 757 7737</a></dd>
+              </div>
+              <div>
+                <dt>Orari</dt>
+                <dd>Lun – Sab 8:30 – 20:00 · Dom chiuso</dd>
+              </div>
+            </dl>
+            <div class="place-cta">
+              <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&destination=Corso%20Giuseppe%20Garibaldi%2030%2C%2027036%20Mortara%20PV" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
+                Come arrivare
+              </a>
+              <a class="btn btn-ghost" href="tel:+393887577737">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                Chiama il salone
+              </a>
+            </div>
+          </div>
+          <div class="map-ph" role="img" aria-label="Mappa indicativa della posizione del salone in Corso Giuseppe Garibaldi 30, Mortara — da sostituire con mappa reale">
+            <div class="map-pin">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="lbl">Alice parrucchiere</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATTI -->
+    <section id="contatti" aria-labelledby="contatti-title">
+      <div class="wrap">
+        <div class="contact-cta">
+          <h2 id="contatti-title">Passa quando vuoi</h2>
+          <p>Chiama o scrivici su WhatsApp: ti aspettiamo dal lunedì al sabato, con orario continuato e senza appuntamento.</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="tel:+393887577737" style="background:#fff;color:var(--teal-700);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              388 757 7737
+            </a>
+            <a class="btn btn-wa" href="https://wa.me/393887577737" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 1.8a8.1 8.1 0 0 1 8.1 8.11c0 4.47-3.64 8.11-8.11 8.11a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3.12.82.83-3.04-.19-.31a8.07 8.07 0 0 1-1.24-4.27c0-4.48 3.64-8.11 8.16-8.11zm-2.6 4.36c-.18 0-.46.07-.7.33-.24.27-.92.9-.92 2.2s.94 2.55 1.07 2.73c.13.18 1.85 2.83 4.49 3.96.63.27 1.12.43 1.5.55.63.2 1.2.17 1.66.1.51-.07 1.56-.64 1.78-1.25.22-.62.22-1.14.16-1.25-.07-.11-.24-.18-.51-.31-.27-.13-1.56-.77-1.8-.86-.24-.09-.42-.13-.6.14-.18.27-.69.86-.84 1.04-.16.18-.31.2-.58.07-.27-.14-1.13-.42-2.16-1.33-.8-.71-1.34-1.59-1.5-1.86-.16-.27-.02-.42.12-.55.12-.12.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.34-.02-.47-.07-.13-.6-1.45-.83-1.98-.22-.53-.44-.45-.6-.46l-.51-.01z"/></svg>
+              WhatsApp
+            </a>
+            <a class="btn btn-ghost" href="https://www.google.com/maps/dir/?api=1&destination=Corso%20Giuseppe%20Garibaldi%2030%2C%2027036%20Mortara%20PV" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
+              Come arrivare
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site">
+    <div class="wrap foot-grid">
+      <div>
+        <h4>Alice parrucchiere</h4>
+        <p>Il tuo salone a Mortara: pratico, pulito e sempre aperto, anche il lunedì.</p>
+      </div>
+      <div>
+        <h4>Contatti</h4>
+        <p>Corso Giuseppe Garibaldi 30<br>27036 Mortara (PV)</p>
+        <p><a href="tel:+393887577737">388 757 7737</a></p>
+      </div>
+      <div>
+        <h4>Orari</h4>
+        <p>Lun – Sab: 8:30 – 20:00<br>Domenica: chiuso</p>
+      </div>
+    </div>
+    <div class="wrap foot-bottom">
+      <span>© 2026 Alice parrucchiere · Corso Giuseppe Garibaldi 30, Mortara (PV)</span>
+      <!-- SC-WEB-NOTE-START : nota anteprima rimuovibile -->
+      <span class="sc-note">Anteprima realizzata da SC Web</span>
+      <!-- SC-WEB-NOTE-END -->
+    </div>
+  </footer>
+
+</body>
+</html>
